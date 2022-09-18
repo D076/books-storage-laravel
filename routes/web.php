@@ -22,13 +22,13 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
         Route::get('/', 'IndexController')->name('admin.main.index');
     });
     Route::group(['namespace' => 'Book', 'prefix' => 'books'], function () {
-//        Route::get('/', 'IndexController')->name('admin.book.index');
-//        Route::get('/create', 'CreateController')->name('admin.book.create');
-//        Route::post('/', 'StoreController')->name('admin.book.store');
-//        Route::get('/{book}', 'ShowController')->name('admin.book.show');
-//        Route::get('/{book}/edit', 'EditController')->name('admin.book.edit');
-//        Route::patch('/{book}', 'UpdateController')->name('admin.book.update');
-//        Route::delete('/{book}', 'DeleteController')->name('admin.book.delete');
+        Route::get('/', 'IndexController')->name('admin.book.index');
+        Route::get('/create', 'CreateController')->name('admin.book.create');
+        Route::post('/', 'StoreController')->name('admin.book.store');
+        Route::get('/{book}', 'ShowController')->name('admin.book.show');
+        Route::get('/{book}/edit', 'EditController')->name('admin.book.edit');
+        Route::patch('/{book}', 'UpdateController')->name('admin.book.update');
+        Route::delete('/{book}', 'DeleteController')->name('admin.book.delete');
     });
     Route::group(['namespace' => 'Genre', 'prefix' => 'genres'], function () {
 //        Route::get('/', 'IndexController')->name('admin.genre.index');
