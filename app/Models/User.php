@@ -22,6 +22,7 @@ class User extends Authenticatable
             self::ROLE_AUTHOR => 'Автор',
         ];
     }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -56,5 +57,14 @@ class User extends Authenticatable
     public function books()
     {
         return $this->hasMany(Book::class, 'user_id', 'id');
+    }
+
+    public function getRole()
+    {
+        $roles = self::getRoles();
+        foreach ($roles as $key => $role){
+            if ($this->getAttribute('role') == $key)
+                return $role;
+        }
     }
 }
