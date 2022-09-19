@@ -14,6 +14,7 @@ class User extends Authenticatable
 
     const ROLE_ADMIN = 0;
     const ROLE_AUTHOR = 1;
+    protected $withCount = ['books'];
 
     public static function getRoles()
     {
