@@ -41,6 +41,14 @@
                                             <td>{{ $book->title }}</td>
                                         </tr>
                                         <tr>
+                                            <td>Жанры</td>
+                                            <td>
+                                                @foreach( $book->genres as $genre)
+                                                    {{ $genre->title }}
+                                                @endforeach
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <td>Автор</td>
                                             <td>{{ $book->user->name }}</td>
                                         </tr>
