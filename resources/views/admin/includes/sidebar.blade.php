@@ -9,11 +9,21 @@
             <!-- Add icons to the links using the .nav-icon class
                  with font-awesome or any other icon font library -->
             <li class="nav-item">
+                <a href="{{ route('admin.user.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-users"></i>
+                    <p>Пользователи</p>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a href="{{ route('admin.book.index') }}" class="nav-link">
                     <i class="nav-icon far fa-clipboard"></i>
-                    <p>
-                        Книги
-                    </p>
+                    <p>Книги</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('admin.genre.index') }}" class="nav-link">
+                    <i class="nav-icon fas fa-tags"></i>
+                    <p>Жанры</p>
                 </a>
             </li>
         </ul>
