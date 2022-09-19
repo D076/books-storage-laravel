@@ -33,6 +33,7 @@
                                         <th>ID</th>
                                         <th>Имя</th>
                                         <th>Роль</th>
+                                        <th>Количество книг</th>
                                         <th colspan="3">Действие</th>
                                     </tr>
                                     </thead>
@@ -42,6 +43,7 @@
                                             <td>{{$user->id}}</td>
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->getRole()}}</td>
+                                            <td>{{$user->books_count}}</td>
                                             <td><a href="{{ route('admin.user.show', $user) }}"><i class="far fa-eye"></i></a></td>
                                             <td><a href="{{ route('admin.user.edit', $user) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                             <td>

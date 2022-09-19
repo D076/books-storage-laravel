@@ -32,14 +32,23 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
+                                        <th>Автор</th>
+                                        <th>Жанры</th>
                                         <th colspan="3">Действие</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($books as $book)
                                         <tr>
-                                            <td>{{$book->id}}</td>
-                                            <td>{{$book->title}}</td>
+                                            <td>{{ $book->id }}</td>
+                                            <td>{{ $book->title }}</td>
+                                            <td>{{ $book->user->name }}</td>
+                                            <td>
+                                                @foreach( $book->genres as $genre)
+                                                    {{ $genre->title }}
+                                                    <br>
+                                                @endforeach
+                                            </td>
                                             <td><a href="{{ route('admin.book.show', $book) }}"><i class="far fa-eye"></i></a></td>
                                             <td><a href="{{ route('admin.book.edit', $book) }}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                             <td>
