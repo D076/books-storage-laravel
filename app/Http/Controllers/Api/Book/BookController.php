@@ -7,6 +7,8 @@ use App\Http\Requests\Api\Book\UpdateRequest;
 use App\Http\Resources\Book\BookResource;
 use App\Models\Book;
 use App\Service\BookService;
+use Illuminate\Http\Request;
+
 
 class BookController extends Controller
 {
@@ -27,21 +29,26 @@ class BookController extends Controller
         return new BookResource(Book::findOrFail($book));
     }
 
-    // ToDo Должна быть авторизация под автором книги
     public function update(UpdateRequest $request, $book)
     {
+        $user_id = $request->user()->id;
         $data = $request->validated();
         $book = Book::findOrFail($book);
-        $book = $this->service->update($data, $book);
-        return new BookResource($book);
+        if ($user_id == $book->user_id) {
+            $book = $this->service->update($data, $book);
+            return new BookResource($book);
+        } else
+            return response('You have no permission', 403);
     }
 
-    // ToDo Должна быть авторизация под автором книги
-    public function delete($book)
+    public function delete(Request $request, $book)
     {
+        $user_id = $request->user()->id;
         $book = Book::findOrFail($book);
-        $this->service->delete($book);
-        // ToDo Добавить код успеха
-        return json_encode('200');
+        if ($user_id == $book->user_id) {
+            $this->service->delete($book);
+        } else
+            return response('You have no permission', 403);
+        return response("Success", 200);
     }
 }

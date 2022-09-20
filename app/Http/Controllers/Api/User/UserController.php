@@ -10,19 +10,26 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function users(){
+    public function users()
+    {
         return UserResource::collection(User::withCount('books')->get());
     }
 
-    public function show($user){
+    public function show($user)
+    {
         return new UserResource(User::findOrFail($user));
     }
 
-    // ToDo Должна быть авторизация под этим пользователем
-    public function update(UpdateRequest $request, $user){
-        $user = User::findOrFail($user);
-        $data = $request->validated();
-        $user->update($data);
-        return new UserResource($user);
+    public function update(UpdateRequest $request, $user)
+    {
+        $user_id = $request->user()->id;
+        if ($user_id == $user) {
+            $user = User::findOrFail($user);
+            $data = $request->validated();
+            $user->update($data);
+            return new UserResource($user);
+        }
+        else
+            return response('You have no permission', 403);
     }
 }
