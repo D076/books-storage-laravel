@@ -39,3 +39,5 @@ php artisan serve
 ```
 
 To access the admin panel register new user and change on "User" table in your db field "role" to "0".
+
+You can to log in via api through 'api/login', and use authorization with bearer token.
