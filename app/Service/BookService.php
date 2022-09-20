@@ -34,6 +34,7 @@ class BookService
             if (isset($data['genre_ids'])) {
                 $genreIds = $data['genre_ids'];
                 unset($data['genre_ids']);
+
             }
 
             $book->update($data);
