@@ -1,23 +1,28 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Название</th>
+            <th scope="col">Автор</th>
+            <th scope="col">Жанры</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        @foreach($books as $book)
+            <tr>
+                <td>{{ $book->id }}</td>
+                <td>{{ $book->title }}</td>
+                <td>{{ $book->user->name }}</td>
+                <td>
+                    @foreach( $book->genres as $genre)
+                        {{ $genre->title }}
+                        <br>
+                @endforeach
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 @endsection
