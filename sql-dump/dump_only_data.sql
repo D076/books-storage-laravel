@@ -92,7 +92,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (2, 'Васильев Илья', 'autor1@mail.ru', NULL, '$2y$10$HBwUGA3ep8HDQgRUVpNUt.ivxkAxRdDId3wzHjsz9uN7SwiXV9L8i', NULL, '2022-09-22 21:05:25', '2022-09-22 21:05:25', 1),
 (3, 'Фаустов Игорь', 'autor2@mail.ru', NULL, '$2y$10$xOqux3kWyDsGljBc.L.zoe7oDQJ4thB94afAHH24eD6e8yGhhixEm', NULL, '2022-09-22 21:06:35', '2022-09-22 21:06:35', 1),
 (4, 'Седых Иван', 'autor3@mail.ru', NULL, '$2y$10$o5zl6aD1c4rt.oP9zv4HJOhblo9pffBcHy9B2SapX/mLRXVHVDqMi', NULL, '2022-09-22 21:07:23', '2022-09-22 21:07:23', 1);
-
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
