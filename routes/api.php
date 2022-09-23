@@ -19,11 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Api'], function () {
-    Route::get('/check_user', function (Request $request) {
-        $name = $request->user()->tokens;
-        return $name;
-    })->middleware(['auth:sanctum']);
-
     Route::group(['namespace' => 'Book'], function () {
         Route::get('/book', 'BookController@books');
         Route::get('/book/{book}', 'BookController@show');
